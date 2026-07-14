@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Produk Kami</title>
+    <!-- Tailwind CSS CDN untuk desain modern instan -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Smooth scroll untuk navigasi yang mulus */
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- EDIT: Ganti Nama Toko/Brand Anda di sini -->
+            <a href="#" class="text-2xl font-bold text-emerald-600 tracking-wide">CV. BERKAH DAGANG NUSANTARA</a>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#katalog" class="hover:text-emerald-600 transition">Katalog</a>
+                <a href="#tentang" class="hover:text-emerald-600 transition">Tentang Kami</a>
+                <a href="#kontak" class="hover:text-emerald-600 transition">Hubungi Kami</a>
+            </nav>
+            <!-- EDIT: Tautan nomor WhatsApp Anda -->
+            <a href="https://wa.me/087865656061" target="_blank" class="bg-emerald-600 text-white px-5 py-2 rounded-full font-medium hover:bg-emerald-700 transition shadow-sm">
+                Hubungi WA
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="bg-gradient-to-r from-emerald-50 to-teal-50 py-16 md:py-24">
+        <div class="container mx-auto px-6 text-center max-w-3xl">
+            <!-- EDIT: Judul Utama & Slogan -->
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
+                Produk Pilihan Terbaik untuk Kebutuhan Anda
+            </h1>
+            <p class="text-lg text-gray-600 mb-8">
+                Kami menyediakan produk untuk berkualitas tinggi untuk melengkapi alat dapur SPPG Anda. Silakan jelajahi katalog kami di bawah ini.
+            </p>
+            <a href="#katalog" class="bg-emerald-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition shadow-md">
+                Lihat Katalog
+            </a>
+        </div>
+    </section>
+
+    <!-- KATALOG PRODUK -->
+    <section id="katalog" class="py-16 container mx-auto px-6">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-2">Katalog Produk</h2>
+            <p class="text-gray-500">Pilih produk favorit Anda dan pesan langsung via WhatsApp</p>
+        </div>
+
+        <!-- Grid Produk -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- PRODUK 1 (Salin blok ini jika ingin menambah produk baru) -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 flex flex-col justify-between">
+                <div>
+                    <!-- EDIT: Ganti URL Gambar Produk 1 -->
+                    <img src="https://i.postimg.cc/15pJhXY4/TV-32-Inci.jpg">
+                    <div class="p-6">
+                        <!-- EDIT: Kategori & Nama Produk -->
+                        <span class="text-xs font-bold text-emerald-600 tracking-widest uppercase">Elektronik</span>
+                        <h3 class="text-xl font-bold text-gray-900 mt-1 mb-2">Android TV Noise 32 inc. BT HX</h3>
+                        <!-- EDIT: Deskripsi Produk -->
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Android tv dengan resolusi HD yang dapat memberikan gambar yang lebih berwarna dan tajam.
+                        </p>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <div class="flex items-center justify-between mb-4">
+                        <!-- EDIT: Harga -->
+                        <span class="text-2xl font-extrabold text-gray-900">Rp 1.500.000</span>
+                        <span class="text-xs bg-emerald-100 text-emerald-800 px-2.5 py-1 rounded-full font-semibold">Ready Stock</span>
+                    </div>
+                    <!-- EDIT: Link Pesan WhatsApp otomatis dengan teks kustom -->
+                    <a href="https://wa.me/087865656061?text=Halo%20Toko%20Berkah Dagang Nusantara,%20saya%20ingin%20memesan%20Android%20TV%20Noise%2032inci" target="_blank" class="block text-center bg-emerald-600 text-white py-3 rounded-xl font-semibold hover:bg-emerald-700 transition">
+                        Beli Sekarang
+                    </a>
+                </div>
+            </div>
+            <!-- AKHIR PRODUK 1 -->
+
+            <!-- PRODUK 2 -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 flex flex-col justify-between">
+                <div>
+                    <!-- EDIT: Ganti URL Gambar Produk 2 -->
+                    <img src="https://i.postimg.cc/3x0LS9Qy/TV-43-Inci.jpg">
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-emerald-600 tracking-widest uppercase">Elektronik</span>
+                        <h3 class="text-xl font-bold text-gray-900 mt-1 mb-2">Android TV Noise 43 Inc. BT</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Android TV dengan layar 43 Inci yang lega, dapat memberikan pengalaman menonton yang lebih imersif.
+                        </p>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-2xl font-extrabold text-gray-900">Rp 2.500.000</span>
+                        <span class="text-xs bg-emerald-100 text-emerald-800 px-2.5 py-1 rounded-full font-semibold">Ready Stock</span>
+                    </div>
+                    <a href="https://wa.me/087865656061?text=Halo%20Toko%20Berkah Dagang Nusantara,%20saya%20ingin%20memesan%20Android%20TV%20Noise%2043inci" target="_blank" class="block text-center bg-emerald-600 text-white py-3 rounded-xl font-semibold hover:bg-emerald-700 transition">
+                        Beli Sekarang
+                    </a>
+                </div>
+            </div>
+            <!-- AKHIR PRODUK 2 -->
+
+            <!-- PRODUK 3 -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 flex flex-col justify-between">
+                <div>
+                    <!-- EDIT: Ganti URL Gambar Produk 3 -->
+                    <img src="https://i.postimg.cc/V62TLT8B/Baki-foodpan-Polos.jpg">
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-emerald-600 tracking-widest uppercase">Peralatan Makan & Saji</span>
+                        <h3 class="text-xl font-bold text-gray-900 mt-1 mb-2">Baki Foodpan Polos</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Baki Foodpan berbahan dasar stainliss steel premium cocok untuk wadah bahan makanan.
+                        </p>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-2xl font-extrabold text-gray-900">Rp 175.000</span>
+                        <span class="text-xs bg-emerald-100 text-emerald-800 px-2.5 py-1 rounded-full font-semibold">Ready Stock</span>
+                    </div>
+                    <a href="https://wa.me/087865656061?text=Halo%20Toko%20Berkah Dagang Nusantara,%20saya%20ingin%20memesan%20Baki%20Foodpan%20Polos" target="_blank" class="block text-center bg-emerald-600 text-white py-3 rounded-xl font-semibold hover:bg-emerald-700 transition">
+                        Beli Sekarang
+                    </a>
+                </div>
+            </div>
+            <!-- AKHIR PRODUK 3 -->
+
+	    <!-- PRODUK 4 -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 flex flex-col justify-between">
+                <div>
+                    <!-- EDIT: Ganti URL Gambar Produk 3 -->
+                    <img src="https://i.postimg.cc/SRBp3RRR/Baki-foodpan-Bolong.jpg">
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-emerald-600 tracking-widest uppercase">Peralatan Makan & Saji</span>
+                        <h3 class="text-xl font-bold text-gray-900 mt-1 mb-2">Baki Foodpan Bolong</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Baki Foodpan bolong berbahan dasar stainliss steel premium steril untuk menyaring bahan makanan.
+                        </p>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-2xl font-extrabold text-gray-900">Rp 175.000</span>
+                        <span class="text-xs bg-red-100 text-red-800 px-2.5 py-1 rounded-full font-semibold">Stok Terbatas</span>
+                    </div>
+                    <a href="https://wa.me/087865656061?text=Halo%20Toko%20Berkah Dagang Nusantara,%20saya%20ingin%20memesan%20Baki%20Foodpan%20Bolong" target="_blank" class="block text-center bg-emerald-600 text-white py-3 rounded-xl font-semibold hover:bg-emerald-700 transition">
+                        Beli Sekarang
+                    </a>
+                </div>
+            </div>
+            <!-- AKHIR PRODUK 4 -->
+
+        </div>
+    </section>
+
+    <!-- TENTANG KAMI -->
+    <section id="tentang" class="bg-white py-16">
+        <div class="container mx-auto px-6 max-w-4xl text-center">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Tentang Kami</h2>
+            <!-- EDIT: Deskripsi Singkat Bisnis Anda -->
+            <p class="text-gray-600 leading-relaxed mb-6">
+                Kami berkomitmen untuk selalu memberikan pelayanan terbaik dan menyediakan produk dengan kualitas nomor satu. Transaksi aman dan admin yang selalu siap membantu Anda kapan saja.
+            </p>
+            <div class="flex justify-center space-x-12 mt-8">
+                <div>
+                    <span class="block text-3xl font-bold text-emerald-600">100%</span>
+                    <span class="text-sm text-gray-500">Terpercaya</span>
+                </div>
+                <div>
+                    <span class="block text-3xl font-bold text-emerald-600">1000+</span>
+                    <span class="text-sm text-gray-500">Pelanggan Puas</span>
+                </div>
+                <div>
+                    <span class="block text-3xl font-bold text-emerald-600">24/7</span>
+                    <span class="text-sm text-gray-500">Respon Cepat</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER / KONTAK -->
+    <footer id="kontak" class="bg-gray-900 text-gray-400 py-12">
+        <div class="container mx-auto px-6 text-center">
+            <!-- EDIT: Ganti sesuai informasi kontak Anda -->
+            <h3 class="text-xl font-semibold text-white mb-4">Hubungi Hubungi Kontak Resmi Kami</h3>
+            <p class="mb-2">📍 Lokasi: Jl. Blue Safir No. 1, Selagalas, Kec.Sandubaya</p>
+            <p class="mb-6">📩 Email: @cv.berkahdagangnusantara.com</p>
+            <div class="border-t border-gray-800 pt-8 mt-8">
+                <p>&copy; 2026 CV. Berkah Dagang Nusantara. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
