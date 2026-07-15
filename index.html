@@ -15,33 +15,41 @@
 
     <!-- HEADER / NAVIGATION -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center gap-4">
-            <!-- EDIT: Ganti Nama Toko/Brand Anda di sini -->
-            <a href="#" class="text-2xl font-bold text-emerald-600 tracking-wide shrink-0">CV.Berkah Dagang Nusantara</a>
-            
-            <!-- NAVIGASI & PENCARIAN BARU -->
-            <div class="flex items-center space-x-6 flex-1 justify-end">
-                <nav class="hidden lg:flex space-x-6 text-sm font-medium">
-                    <a href="#katalog" class="hover:text-emerald-600 transition">Katalog</a>
-                    <a href="#tentang" class="hover:text-emerald-600 transition">Tentang Kami</a>
-                    <a href="#kontak" class="hover:text-emerald-600 transition">Hubungi Kami</a>
-                </nav>
+        <div class="container mx-auto px-4 py-3">
+            <!-- BARIS UTAMA (Responsive Flex) -->
+            <div class="flex flex-wrap items-center justify-between gap-2">
                 
-                <!-- KOLOM PENCARIAN KECIL DI POJOK ATAS -->
-                <div class="relative max-w-[180px] sm:max-w-[240px] w-full">
-                    <input type="text" id="searchBar" onkeyup="cariBarang()" placeholder="Cari produk..." class="w-full text-xs px-3 py-2 pl-8 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent bg-gray-50">
-                    <div class="absolute left-2.5 top-2.5 text-gray-400">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                        </svg>
+                <!-- LOGO TOKO -->
+                <!-- EDIT: Ganti Nama Toko/Brand Anda di sini -->
+                <a href="#" class="text-xl font-bold text-emerald-600 tracking-wide shrink-0">CV.Berkah Dagang Nusantara</a>
+                
+                <!-- NAVIGASI & PENCARIAN -->
+                <div class="flex items-center space-x-4 flex-1 justify-end order-2 sm:order-none">
+                    <!-- Menu Teks (Hanya muncul di laptop/layar besar) -->
+                    <nav class="hidden lg:flex space-x-6 text-sm font-medium">
+                        <a href="#katalog" class="hover:text-emerald-600 transition">Katalog</a>
+                        <a href="#tentang" class="hover:text-emerald-600 transition">Tentang Kami</a>
+                        <a href="#kontak" class="hover:text-emerald-600 transition">Hubungi Kami</a>
+                    </nav>
+                    
+                    <!-- KOLOM PENCARIAN (Lebar otomatis & pas di HP) -->
+                    <div class="relative w-full max-w-[150px] sm:max-w-[240px]">
+                        <input type="text" id="searchBar" onkeyup="cariBarang()" placeholder="Cari produk..." class="w-full text-xs px-3 py-2 pl-8 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent bg-gray-50">
+                        <div class="absolute left-2.5 top-2.5 text-gray-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- EDIT: Tautan nomor WhatsApp Anda -->
-            <a href="https://wa.me/6287865656061" target="_blank" class="bg-emerald-600 text-white text-xs sm:text-sm px-4 py-2 rounded-full font-medium hover:bg-emerald-700 transition shadow-sm shrink-0">
-                Hubungi WA
-            </a>
+                <!-- TOMBOL WHATSAPP (Otomatis turun ke bawah saat layar HP sangat kecil) -->
+                <!-- EDIT: Tautan nomor WhatsApp Anda -->
+                <a href="https://wa.me/+6287865656061" target="_blank" class="w-full sm:w-auto text-center bg-emerald-600 text-white text-xs px-4 py-2 rounded-full font-medium hover:bg-emerald-700 transition shadow-sm order-3 sm:order-none mt-2 sm:mt-0">
+                    Hubungi WA
+                </a>
+
+            </div>
         </div>
     </header>
 
