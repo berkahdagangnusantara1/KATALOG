@@ -6,9 +6,52 @@
     <title>Katalog Produk Kami</title>
     <!-- Tailwind CSS CDN untuk desain modern instan -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Smooth scroll untuk navigasi yang mulus */
+   <style>
         html { scroll-behavior: smooth; }
+        
+        /* Trik Otomatis Gaya Shopee untuk 40 Produk Anda */
+        .card-produk {
+            border: 1px solid #e5e7eb !important;
+            border-radius: 0.5rem !important;
+            padding: 0px !important;
+        }
+        
+        /* Memaksa semua foto produk menjadi kotak 1:1 tanpa merusak gambar */
+        .card-produk img {
+            aspect-ratio: 1 / 1 !important;
+            width: 100% !important;
+            height: auto !important;
+            object-fit: cover !important;
+        }
+
+        /* Merapikan bantalan teks produk */
+        .card-produk h3 {
+            font-size: 0.75rem !important;
+            line-height: 1.25 !important;
+            display: -webkit-box !important;
+            -webkit-line-clamp: 2 !important;
+            -webkit-box-orient: vertical !important;
+            overflow: hidden !important;
+            padding: 0.5rem 0.5rem 0 0.5rem !important;
+            margin-bottom: 0px !important;
+        }
+
+        .card-produk span {
+            padding-left: 0.5rem !important;
+        }
+
+        /* Menyesuaikan area harga dan tombol bawah */
+        .card-produk div:last-child {
+            padding: 0.5rem !important;
+            padding-top: 0px !important;
+        }
+
+        .card-produk a {
+            padding-top: 0.4rem !important;
+            padding-bottom: 0.4rem !important;
+            font-size: 0.75rem !important;
+            border-radius: 0.25rem !important;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
@@ -66,7 +109,7 @@
 </div>
 
         <!-- Grid Produk -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4 bg-gray-100 p-2 rounded-xl">
             
             <!-- PRODUK 1 (Salin blok ini jika ingin menambah produk baru) -->
             <div class="card-produk bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 flex flex-col justify-between">
