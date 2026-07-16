@@ -7,24 +7,128 @@
     <!-- Tailwind CSS CDN untuk desain modern instan -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Memaksa Grid Menjadi 2 Kolom di HP dan 4 Kolom di Laptop */
-#katalog .grid, 
-#katalog div[class*="grid"] {
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important; /* 2 Kolom di HP */
-    gap: 0.5rem !important; /* Jarak antar produk standar Shopee di HP */
-    padding: 0.5rem !important;
-}
+        html { scroll-behavior: smooth; }
+        
+        /* 1. KONTROL GRID: 2 Kolom di HP, 4 Kolom di Laptop */
+        #katalog .grid, 
+        #katalog div[class*="grid"] {
+            display: grid !important;
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            gap: 0.5rem !important;
+            padding: 0.5rem !important;
+        }
 
-/* Mengubah menjadi 4 Kolom saat layar berukuran Laptop/PC (Minimal lebar 768px) */
-@media (min-width: 768px) {
-    #katalog .grid, 
-    #katalog div[class*="grid"] {
-        grid-template-columns: repeat(4, minmax(0, 1fr)) !important; /* 4 Kolom di Laptop */
-        gap: 1rem !important; /* Jarak antar produk di Laptop */
-        padding: 1rem !important;
-    }
-}
+        @media (min-width: 768px) {
+            #katalog .grid, 
+            #katalog div[class*="grid"] {
+                grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+                gap: 1rem !important;
+                padding: 1rem !important;
+            }
+        }
+
+        /* 2. KONTROL KARTU PRODUK ALA SHOPEE */
+        .card-produk {
+            border: 1px solid #e5e7eb !important;
+            border-radius: 0.5rem !important;
+            padding: 0px !important;
+            background-color: #ffffff !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: space-between !important;
+            overflow: hidden !important;
+        }
+        
+        /* Memaksa semua foto produk menjadi kotak 1:1 */
+        .card-produk img {
+            aspect-ratio: 1 / 1 !important;
+            width: 100% !important;
+            height: auto !important;
+            object-fit: cover !important;
+        }
+
+        /* NAMA BARANG: Maksimal 2 baris, sisanya otomatis disembunyikan (...) */
+        .card-produk h3 {
+            font-size: 0.75rem !important;
+            font-weight: 500 !important;
+            line-height: 1.25 !important;
+            color: #1f2937 !important;
+            display: -webkit-box !important;
+            -webkit-line-clamp: 2 !important;
+            -webkit-box-orient: vertical !important;
+            overflow: hidden !important;
+            padding: 0.5rem 0.5rem 0 0.5rem !important;
+            margin-bottom: 2px !important;
+            min-height: 2.5rem !important; /* Menjaga tinggi nama barang tetap sejajar */
+        }
+
+        /* KATEGORI KECIL */
+        .card-produk span:first-of-type {
+            font-size: 0.65rem !important;
+            padding-left: 0.5rem !important;
+            color: #059669 !important; /* Warna Emerald */
+            font-weight: 600 !important;
+        }
+
+        /* DESKRIPSI BARANG: DISEMBUNYIKAN SEPENUHNYA */
+        /* Trik ini mendeteksi tag paragraf deskripsi lama Anda dan menyembunyikannya agar kotak tidak panjang */
+        .card-produk p.text-gray-600,
+        .card-produk p:not([class*="text-[10px]"]):not([class*="text-[9px]"]) {
+            display: none !important;
+        }
+
+        /* 3. PERBAIKAN HARGA BARANG DAN READY STOCK */
+        /* Memaksa pembungkus harga & ready stock sejajar rapi */
+        .card-produk .flex.items-center.justify-between {
+            display: flex !important;
+            flex-direction: row !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            padding: 0.25rem 0.5rem !important;
+            margin-bottom: 4px !important;
+        }
+
+        /* Ukuran Harga Barang */
+        .card-produk .text-2xl,
+        .card-produk span[class*="text-gray-900"] {
+            font-size: 0.9rem !important; /* Dikecilkan dari 2xl agar pas di kotak HP */
+            font-weight: 700 !important;
+            color: #059669 !important; /* Diubah ke warna hijau emerald agar lebih mencolok */
+        }
+
+        /* Ukuran Badge Ready Stock */
+        .card-produk .text-xs.bg-emerald-100,
+        .card-produk span[class*="bg-emerald-100"] {
+            font-size: 0.65rem !important; /* Ukuran teks badge diperkecil */
+            padding: 0.15rem 0.4rem !important; /* Bantalan badge diperkecil */
+            border-radius: 0.25rem !important;
+            font-weight: 600 !important;
+        }
+
+        /* Keterangan tambahan "*Harga dapat berubah..." */
+        .card-produk p[class*="text-[10px]"],
+        .card-produk p[class*="text-[9px]"] {
+            padding-left: 0.5rem !important;
+            margin-bottom: 6px !important;
+            font-size: 0.6rem !important;
+        }
+
+        /* Tombol Beli WhatsApp bawah */
+        .card-produk a {
+            display: block !important;
+            text-align: center !important;
+            margin: 0.5rem !important;
+            margin-top: 0px !important;
+            padding: 0.4rem 0.5rem !important;
+            font-size: 0.75rem !important;
+            font-weight: 600 !important;
+            border-radius: 0.375rem !important;
+            background-color: #059669 !important;
+        }
+        
+        .card-produk a:hover {
+            background-color: #047857 !important;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
