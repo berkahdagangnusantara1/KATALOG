@@ -39,7 +39,6 @@
             overflow: hidden !important;
         }
         
-        /* Memaksa semua foto produk menjadi kotak 1:1 */
         .card-produk img {
             aspect-ratio: 1 / 1 !important;
             width: 100% !important;
@@ -47,10 +46,10 @@
             object-fit: cover !important;
         }
 
-        /* NAMA BARANG: Maksimal 2 baris, sisanya otomatis disembunyikan (...) */
+        /* NAMA BARANG: Maksimal 2 baris */
         .card-produk h3 {
             font-size: 0.75rem !important;
-            font-weight: 500 !important;
+            font-weight: 600 !important;
             line-height: 1.25 !important;
             color: #1f2937 !important;
             display: -webkit-box !important;
@@ -59,58 +58,86 @@
             overflow: hidden !important;
             padding: 0.5rem 0.5rem 0 0.5rem !important;
             margin-bottom: 2px !important;
-            min-height: 2.5rem !important; /* Menjaga tinggi nama barang tetap sejajar */
+            min-height: 2.2rem !important;
         }
 
         /* KATEGORI KECIL */
         .card-produk span:first-of-type {
             font-size: 0.65rem !important;
             padding-left: 0.5rem !important;
-            color: #059669 !important; /* Warna Emerald */
+            color: #059669 !important;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* DESKRIPSI BARANG POTONGAN (Awalnya muncul 1 baris) */
+        .desc-singkat {
+            font-size: 0.7rem !important;
+            color: #4b5563 !important;
+            padding: 0 0.5rem !important;
+            display: -webkit-box;
+            -webkit-line-clamp: 1; /* Muncul 1 baris saja awalnya */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.3;
+        }
+
+        /* Ketika tombol selengkapnya diklik, class ini akan aktif lewat JS */
+        .desc-singkat.buka-semua {
+            display: block !important;
+            overflow: visible !important;
+            -webkit-line-clamp: unset !important;
+        }
+
+        /* Tombol Selengkapnya */
+        .btn-selengkapnya {
+            font-size: 0.65rem !important;
+            color: #059669 !important;
             font-weight: 600 !important;
+            padding: 0 0.5rem !important;
+            cursor: pointer;
+            display: inline-block;
+            margin-bottom: 4px;
         }
 
-        /* DESKRIPSI BARANG: DISEMBUNYIKAN SEPENUHNYA */
-        /* Trik ini mendeteksi tag paragraf deskripsi lama Anda dan menyembunyikannya agar kotak tidak panjang */
-        .card-produk p.text-gray-600,
-        .card-produk p:not([class*="text-[10px]"]):not([class*="text-[9px]"]) {
-            display: none !important;
-        }
-
-        /* 3. PERBAIKAN HARGA BARANG DAN READY STOCK */
-        /* Memaksa pembungkus harga & ready stock sejajar rapi */
+        /* 3. PERBAIKAN HARGA BARANG DAN READY STOCK (DIBUAT SEJAJAR KEMBALI) */
         .card-produk .flex.items-center.justify-between {
             display: flex !important;
             flex-direction: row !important;
             justify-content: space-between !important;
             align-items: center !important;
             padding: 0.25rem 0.5rem !important;
-            margin-bottom: 4px !important;
+            margin-bottom: 2px !important;
+            gap: 4px !important;
         }
 
-        /* Ukuran Harga Barang */
+        /* Memperbaiki teks Rp agar menyatu dengan nominal angka */
         .card-produk .text-2xl,
         .card-produk span[class*="text-gray-900"] {
-            font-size: 0.9rem !important; /* Dikecilkan dari 2xl agar pas di kotak HP */
+            font-size: 0.85rem !important; /* Disesuaikan sedikit agar muat satu baris */
             font-weight: 700 !important;
-            color: #059669 !important; /* Diubah ke warna hijau emerald agar lebih mencolok */
+            color: #059669 !important;
+            white-space: nowrap !important; /* Mencegah teks turun ke bawah */
+            display: flex !important;
+            gap: 2px;
         }
 
-        /* Ukuran Badge Ready Stock */
-        .card-produk .text-xs.bg-emerald-100,
+        /* Memperkecil Badge Ready Stock agar muat bersanding dengan harga */
         .card-produk span[class*="bg-emerald-100"] {
-            font-size: 0.65rem !important; /* Ukuran teks badge diperkecil */
-            padding: 0.15rem 0.4rem !important; /* Bantalan badge diperkecil */
+            font-size: 0.6rem !important;
+            padding: 0.1rem 0.3rem !important;
             border-radius: 0.25rem !important;
             font-weight: 600 !important;
+            white-space: nowrap !important;
+            flex-shrink: 0 !important;
         }
 
-        /* Keterangan tambahan "*Harga dapat berubah..." */
+        /* Keterangan "*Harga dapat berubah..." */
         .card-produk p[class*="text-[10px]"],
         .card-produk p[class*="text-[9px]"] {
             padding-left: 0.5rem !important;
             margin-bottom: 6px !important;
-            font-size: 0.6rem !important;
+            font-size: 0.58rem !important;
         }
 
         /* Tombol Beli WhatsApp bawah */
@@ -124,10 +151,6 @@
             font-weight: 600 !important;
             border-radius: 0.375rem !important;
             background-color: #059669 !important;
-        }
-        
-        .card-produk a:hover {
-            background-color: #047857 !important;
         }
     </style>
 </head>
@@ -2394,6 +2417,42 @@ Tingkatkan ketepatan dalam proses penimbangan dengan Timbangan Duduk 40 Kg, solu
             }
         }
     }
+</script>
+
+<script>
+    // Menjalankan fungsi setelah seluruh halaman selesai dimuat
+    document.addEventListener("DOMContentLoaded", function() {
+        let produk = document.getElementsByClassName('card-produk');
+        
+        for (let i = 0; i < produk.length; i++) {
+            // Cari tag paragraf deskripsi bawaan (yang menggunakan class text-gray-600)
+            let descTag = produk[i].querySelector('p.text-gray-600');
+            
+            if (descTag) {
+                // Pasang class baru untuk membatasi baris teks
+                descTag.classList.add('desc-singkat');
+                
+                // Buat tombol "Selengkapnya" secara otomatis di bawah deskripsi
+                let btnSelengkapnya = document.createElement('span');
+                btnSelengkapnya.className = 'btn-selengkapnya';
+                btnSelengkapnya.innerText = 'Selengkapnya';
+                
+                // Fungsi ketika tombol Selengkapnya diklik
+                btnSelengkapnya.onclick = function() {
+                    if (descTag.classList.contains('buka-semua')) {
+                        descTag.classList.remove('buka-semua');
+                        btnSelengkapnya.innerText = 'Selengkapnya';
+                    } else {
+                        descTag.classList.add('buka-semua');
+                        btnSelengkapnya.innerText = 'Sembunyikan';
+                    }
+                };
+                
+                // Masukkan tombol ke dalam kartu produk tepat di bawah deskripsinya
+                descTag.parentNode.insertBefore(btnSelengkapnya, descTag.nextSibling);
+            }
+        }
+    });
 </script>
 
 </body>
