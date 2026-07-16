@@ -196,23 +196,52 @@
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
 
-  <!-- HEADER / NAVIGATION -->
+  <!-- HEADER / NAVIGATION - RESPONSIF HP & LAPTOP -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- EDIT: Ganti Nama Toko/Brand Anda di sini -->
-			<!-- LOGO TOKO LANGSUNG DARI GITHUB -->
-<a href="#" class="shrink-0 flex items-center">
-    <img src="LOGO.png" alt="Logo Toko" class="h-16 w-auto md:h-20 object-contain">
-</a>
-            <nav class="hidden md:flex space-x-6">
+        <!-- Baris Utama: Logo dan Tombol WA -->
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center gap-4">
+            
+            <!-- LOGO TOKO -->
+            <a href="#" class="shrink-0 flex items-center">
+                <img src="logo.png" alt="Logo Toko" class="h-12 w-auto md:h-14 object-contain">
+            </a>
+            
+            <!-- MENU NAVIGASI (HANYA DI LAPTOP) -->
+            <nav class="hidden lg:flex space-x-6 text-sm font-medium text-gray-600">
                 <a href="#katalog" class="hover:text-emerald-600 transition">Katalog</a>
                 <a href="#tentang" class="hover:text-emerald-600 transition">Tentang Kami</a>
                 <a href="#kontak" class="hover:text-emerald-600 transition">Hubungi Kami</a>
             </nav>
-            <!-- EDIT: Tautan nomor WhatsApp Anda -->
-            <a href="https://wa.me/+6287865656061" target="_blank" class="bg-emerald-600 text-white px-5 py-2 rounded-full font-medium hover:bg-emerald-700 transition shadow-sm">
-                Hubungi WA
-            </a>
+
+            <div class="flex items-center gap-2 sm:gap-4 shrink-0">
+                <!-- KOLOM PENCARIAN (VERSI LAPTOP: Muncul di kanan) -->
+                <div class="relative hidden md:block w-48 lg:w-64">
+                    <input type="text" onkeyup="cariBarang()" placeholder="Cari produk..." class="w-full text-xs px-3 py-2 pl-8 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-gray-50">
+                    <div class="absolute left-2.5 top-2.5 text-gray-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- TOMBOL WHATSAPP -->
+                <a href="https://wa.me/628123456789" target="_blank" class="bg-emerald-600 text-white text-xs sm:text-sm px-4 py-2 rounded-full font-semibold hover:bg-emerald-700 transition shadow-sm">
+                    Hubungi WA
+                </a>
+            </div>
+        </div>
+
+        <!-- KOLOM PENCARIAN KECIL (VERSI HP: Muncul otomatis tepat di bawah logo saat dibuka di HP) -->
+        <div class="block md:hidden px-4 pb-3 pt-1 border-t border-gray-50">
+            <div class="relative w-full">
+                <!-- Input ini menggunakan id="searchBarMobile" dan menduplikasi fungsi keyup agar sinkron -->
+                <input type="text" id="searchBarMobile" onkeyup="cariBarangMobile()" placeholder="Cari produk di sini..." class="w-full text-xs px-3 py-2 pl-8 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-gray-50">
+                <div class="absolute left-2.5 top-2.5 text-gray-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -2473,6 +2502,20 @@ Tingkatkan ketepatan dalam proses penimbangan dengan Timbangan Duduk 40 Kg, solu
         
         window.tutupModalFoto = function() {
             modal.style.display = "none";
+        }
+// FUNGSI PENCARIAN KHUSUS UNTUK HP
+        window.cariBarangMobile = function() {
+            let input = document.getElementById('searchBarMobile').value.toLowerCase();
+            let produk = document.getElementsByClassName('card-produk');
+            
+            for (let i = 0; i < produk.length; i++) {
+                let namaProduk = produk[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+                if (namaProduk.includes(input)) {
+                    produk[i].style.setProperty('display', 'flex', 'important');
+                } else {
+                    produk[i].style.setProperty('display', 'none', 'important');
+                }
+            }
         }
 
         for (let i = 0; i < produk.length; i++) {
