@@ -7,8 +7,24 @@
     <!-- Tailwind CSS CDN untuk desain modern instan -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Smooth scroll untuk navigasi yang mulus */
-        html { scroll-behavior: smooth; }
+        /* Memaksa Grid Menjadi 2 Kolom di HP dan 4 Kolom di Laptop */
+#katalog .grid, 
+#katalog div[class*="grid"] {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important; /* 2 Kolom di HP */
+    gap: 0.5rem !important; /* Jarak antar produk standar Shopee di HP */
+    padding: 0.5rem !important;
+}
+
+/* Mengubah menjadi 4 Kolom saat layar berukuran Laptop/PC (Minimal lebar 768px) */
+@media (min-width: 768px) {
+    #katalog .grid, 
+    #katalog div[class*="grid"] {
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important; /* 4 Kolom di Laptop */
+        gap: 1rem !important; /* Jarak antar produk di Laptop */
+        padding: 1rem !important;
+    }
+}
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
