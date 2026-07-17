@@ -9,25 +9,41 @@
     <style>
         html { scroll-behavior: smooth; }
         
-        /* 1. GRID ALA MARKETPLACE - LEBIH FULL DI HP */
+        /* 1. MEMAKSA KONTAINER UTAMA KATALOG MELEBAR MAKSIMAL DI HP */
+        #katalog, 
+        #katalog > .container, 
+        #katalog div[class*="container"] {
+            max-width: 100% !important;
+            width: 100% !important;
+            padding-left: 4px !important;  /* Memangkas jarak putih luar sebelah kiri */
+            padding-right: 4px !important; /* Memangkas jarak putih luar sebelah kanan */
+        }
+
+        /* 2. GRID KARTU ALA SHOPEE - FULL KIRI KANAN LAYAR HP */
         #katalog .grid, 
         #katalog div[class*="grid"] {
             display: grid !important;
             grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-            gap: 0.35rem !important; /* Memperkecil jarak antar kartu di HP */
-            padding: 0.35rem 0.25rem !important; /* Memperkecil padding kiri-kanan agar lebih full */
+            gap: 6px !important; /* Jarak antar kartu dibuat pas, tidak terlalu renggang */
+            padding: 4px 0px !important; /* Menghapus padding internal grid agar kartu nempel ke tepi layar */
+            width: 100% !important;
         }
 
+        /* Batasan untuk tampilan laptop/tablet tetap normal & rapi */
         @media (min-width: 768px) {
-            #katalog .grid, 
-            #katalog div[class*="grid"] {
+            #katalog, #katalog > .container, #katalog div[class*="container"] {
+                max-width: 1280px !important;
+                padding-left: 1.5rem !important;
+                padding-right: 1.5rem !important;
+            }
+            #katalog .grid, #katalog div[class*="grid"] {
                 grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
                 gap: 1rem !important;
                 padding: 1rem !important;
             }
         }
 
-        /* 2. KARTU PRODUK RAPI */
+        /* 3. KARTU PRODUK */
         .card-produk {
             border: 1px solid #e5e7eb !important;
             border-radius: 0.5rem !important;
@@ -37,6 +53,7 @@
             flex-direction: column !important;
             justify-content: space-between !important;
             overflow: hidden !important;
+            width: 100% !important;
         }
         
         .card-produk img { aspect-ratio: 1 / 1 !important; width: 100% !important; height: auto !important; object-fit: cover !important; cursor: pointer; }
@@ -48,7 +65,7 @@
         .desc-singkat.buka-semua { display: block !important; overflow: visible !important; -webkit-line-clamp: unset !important; }
         .btn-selengkapnya { font-size: 0.7rem !important; color: #059669 !important; font-weight: 700 !important; padding: 0 0.5rem !important; cursor: pointer; display: inline-block; margin-top: 2px; margin-bottom: 6px; }
 
-        /* AREA HARGA & INDIKATOR STOK (DIUBAH BIAR SEGARIS) */
+        /* AREA HARGA & INDIKATOR STOK SEGARIS */
         .card-produk .flex.items-center.justify-between,
         .card-produk div[class*="justify-between"] { 
             display: flex !important; 
@@ -58,11 +75,10 @@
             gap: 2px !important; 
         }
         
-        /* Memaksa Teks Harga agar Tetap Segaris Berjejer */
         .container-harga-fix { 
             font-size: 0.9rem !important; 
             font-weight: 800 !important; 
-            color: #111827 !important; /* Warna teks harga dibuat tegas gelap */
+            color: #111827 !important; 
             display: flex !important; 
             flex-direction: row !important; 
             align-items: center !important; 
@@ -73,7 +89,7 @@
         
         .card-produk p[class*="text-[9px]"], .card-produk p[class*="italic"] { padding-left: 0.5rem !important; font-size: 0.6rem !important; margin-bottom: 4px !important; }
 
-        /* 3. AREA TOMBOL BERJEJER 2 */
+        /* 4. AREA TOMBOL BERJEJER 2 */
         .container-tombol-produk {
             display: flex !important;
             flex-direction: row !important;
@@ -82,7 +98,6 @@
             padding-top: 0px !important;
         }
 
-        /* Mengecilkan & Menyetel Tombol Beli / Pesan Sekarang */
         .btn-pesan-skrg {
             flex: 1.8 !important;
             text-align: center !important;
@@ -95,7 +110,6 @@
             display: block !important;
         }
 
-        /* Tombol Tambah Keranjang (+ Keranjang) */
         .btn-tambah-keranjang {
             flex: 1.2 !important;
             text-align: center !important;
