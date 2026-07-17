@@ -9,13 +9,13 @@
     <style>
         html { scroll-behavior: smooth; }
         
-        /* 1. GRID KONDISI ALA SHOPEE */
+        /* 1. GRID ALA MARKETPLACE - LEBIH FULL DI HP */
         #katalog .grid, 
         #katalog div[class*="grid"] {
             display: grid !important;
             grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-            gap: 0.5rem !important;
-            padding: 0.5rem !important;
+            gap: 0.35rem !important; /* Memperkecil jarak antar kartu di HP */
+            padding: 0.35rem 0.25rem !important; /* Memperkecil padding kiri-kanan agar lebih full */
         }
 
         @media (min-width: 768px) {
@@ -48,14 +48,32 @@
         .desc-singkat.buka-semua { display: block !important; overflow: visible !important; -webkit-line-clamp: unset !important; }
         .btn-selengkapnya { font-size: 0.7rem !important; color: #059669 !important; font-weight: 700 !important; padding: 0 0.5rem !important; cursor: pointer; display: inline-block; margin-top: 2px; margin-bottom: 6px; }
 
-        /* AREA HARGA & READY STOCK */
+        /* AREA HARGA & INDIKATOR STOK (DIUBAH BIAR SEGARIS) */
         .card-produk .flex.items-center.justify-between,
-        .card-produk div[class*="justify-between"] { display: flex !important; flex-direction: column !important; align-items: flex-start !important; padding: 0.25rem 0.5rem !important; gap: 4px !important; }
-        .card-produk span[class*="bg-emerald-100"], .card-produk .bg-emerald-100 { font-size: 0.65rem !important; padding: 0.15rem 0.4rem !important; border-radius: 0.25rem !important; font-weight: 700 !important; display: inline-block !important; margin-bottom: 2px !important; }
-        .container-harga-fix { font-size: 0.95rem !important; font-weight: 800 !important; color: #059669 !important; display: flex !important; flex-direction: row !important; align-items: center !important; white-space: nowrap !important; gap: 2px !important; }
+        .card-produk div[class*="justify-between"] { 
+            display: flex !important; 
+            flex-direction: column !important; 
+            align-items: flex-start !important; 
+            padding: 0.25rem 0.5rem !important; 
+            gap: 2px !important; 
+        }
+        
+        /* Memaksa Teks Harga agar Tetap Segaris Berjejer */
+        .container-harga-fix { 
+            font-size: 0.9rem !important; 
+            font-weight: 800 !important; 
+            color: #111827 !important; /* Warna teks harga dibuat tegas gelap */
+            display: flex !important; 
+            flex-direction: row !important; 
+            align-items: center !important; 
+            white-space: nowrap !important; 
+            gap: 1px !important; 
+            width: 100% !important;
+        }
+        
         .card-produk p[class*="text-[9px]"], .card-produk p[class*="italic"] { padding-left: 0.5rem !important; font-size: 0.6rem !important; margin-bottom: 4px !important; }
 
-        /* 3. PERBAIKAN AREA TOMBOL BARU (BERJEJER 2) */
+        /* 3. AREA TOMBOL BERJEJER 2 */
         .container-tombol-produk {
             display: flex !important;
             flex-direction: row !important;
@@ -66,7 +84,7 @@
 
         /* Mengecilkan & Menyetel Tombol Beli / Pesan Sekarang */
         .btn-pesan-skrg {
-            flex: 2 !important; /* Ukuran lebih lebar */
+            flex: 1.8 !important;
             text-align: center !important;
             padding: 0.4rem 0.2rem !important;
             font-size: 0.7rem !important;
@@ -79,7 +97,7 @@
 
         /* Tombol Tambah Keranjang (+ Keranjang) */
         .btn-tambah-keranjang {
-            flex: 1 !important; /* Ukuran lebih kecil/ringkas */
+            flex: 1.2 !important;
             text-align: center !important;
             padding: 0.4rem 0.2rem !important;
             font-size: 0.7rem !important;
@@ -92,7 +110,7 @@
             display: block !important;
         }
 
-        /* 4. FLOATING CART FLOATING BUTTON (KERANJANG MELAYANG POJOK BAWAH) */
+        /* FLOATING CART BUTTON */
         .floating-cart {
             position: fixed;
             bottom: 20px;
@@ -104,7 +122,7 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             z-index: 999;
             cursor: pointer;
-            display: none; /* Muncul jika keranjang isi */
+            display: none;
             align-items: center;
             gap: 8px;
             font-weight: bold;
@@ -2549,26 +2567,44 @@ Tingkatkan ketepatan dalam proses penimbangan dengan Timbangan Duduk 40 Kg, solu
         }
     });
 
-    // FUNGSI UNTUK MEMPERBARUI TAMPILAN INDIKATOR STOK TIAP PRODUK
+    // FUNGSI UNTUK MEMPERBARUI TAMPILAN INDIKATOR STOK & HARGA (ANTI-BERTINDIH)
     function updateStatusStokProduk(idProduk) {
         let pCard = document.getElementById(idProduk);
         if (!pCard) return;
 
         let stok = parseInt(pCard.getAttribute('data-stok'));
-        // Jika lupa menuliskan data-stok di HTML produk, otomatis dianggap 0
         if (isNaN(stok)) stok = 0; 
 
-        // Cari atau buat wadah teks harga & badge status
         let hargaContainer = pCard.querySelector('.flex.items-center.justify-between') || pCard.querySelector('div[class*="justify-between"]');
         if (!hargaContainer) return;
 
-        let badgeStock = hargaContainer.querySelector('.badge-stok-dinamis');
-        if (!badgeStock) {
-            badgeStock = document.createElement('span');
-            badgeStock.className = 'badge-stok-dinamis text-[10px] px-2 py-0.5 rounded font-bold mb-1 inline-block';
-            hargaContainer.insertBefore(badgeStock, hargaContainer.firstChild);
+        // 1. Bersihkan dan ambil teks harga asli dari elemen span pertama (menghindari teks ganda/bertindih)
+        let spanHargaAsli = hargaContainer.querySelector('span:not(.badge-stok-dinamis):not([class*="bg-emerald-100"])');
+        let teksHargaBersih = "Rp 0";
+        
+        if (spanHargaAsli) {
+            teksHargaBersih = spanHargaAsli.innerText.trim();
+        } else {
+            // Jika sudah terlanjur diubah oleh script sebelumnya, ambil dari container fix
+            let containerFix = pCard.querySelector('.container-harga-fix');
+            if (containerFix) teksHargaBersih = containerFix.innerText.trim();
         }
 
+        // 2. Kosongkan isi container untuk menyusun ulang dari awal secara bersih
+        hargaContainer.innerHTML = '';
+
+        // 3. Buat ulang Badge Stok
+        let badgeStock = document.createElement('span');
+        badgeStock.className = 'badge-stok-dinamis text-[10px] px-2 py-0.5 rounded font-bold mb-1 inline-block';
+        hargaContainer.appendChild(badgeStock);
+
+        // 4. Buat ulang Container Harga Segaris secara rapi
+        let divHargaBaru = document.createElement('div');
+        divHargaBaru.className = 'container-harga-fix';
+        divHargaBaru.innerText = teksHargaBersih;
+        hargaContainer.appendChild(divHargaBaru);
+
+        // 5. Sesuaikan status tombol & warna badge berdasarkan jumlah stok
         let btnKeranjang = document.getElementById("btn-cart-" + idProduk);
         let btnPesan = document.getElementById("btn-buy-" + idProduk);
 
