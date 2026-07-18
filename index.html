@@ -96,6 +96,7 @@
             gap: 4px !important;
             padding: 0.5rem !important;
             padding-top: 0px !important;
+            width: 100%;
         }
 
         .btn-pesan-skrg {
@@ -155,15 +156,13 @@
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
 
-  <!-- HEADER / NAVIGATION (FIX SEARCH HP) -->
+    <!-- HEADER / NAVIGATION -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center gap-4">
-            <!-- LOGO -->
             <a href="#" class="shrink-0 flex items-center">
                 <img src="LOGO.png" alt="Logo Toko" class="h-12 w-auto md:h-14 object-contain">
             </a>
             
-            <!-- NAVIGASI LAPTOP -->
             <nav class="hidden lg:flex space-x-6 text-sm font-medium text-gray-600">
                 <a href="#katalog" class="hover:text-emerald-600 transition">Katalog</a>
                 <a href="#tentang" class="hover:text-emerald-600 transition">Tentang Kami</a>
@@ -171,7 +170,6 @@
             </nav>
 
             <div class="flex items-center gap-4 shrink-0">
-                <!-- PENCARIAN (LAPTOP) -->
                 <div class="relative hidden md:block w-48 lg:w-64">
                     <input type="text" id="searchBarLaptop" onkeyup="jalankanPencarian('searchBarLaptop')" placeholder="Cari produk..." class="w-full text-xs px-3 py-2 pl-8 rounded-lg border border-gray-200 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-emerald-500">
                     <div class="absolute left-2.5 top-2.5 text-gray-400">
@@ -179,14 +177,12 @@
                     </div>
                 </div>
 
-                <!-- TOMBOL WA -->
                 <a href="https://wa.me/+6287865656061" target="_blank" class="bg-emerald-600 text-white text-xs sm:text-sm px-4 py-2 rounded-full font-semibold hover:bg-emerald-700 transition shadow-sm">
                     Hubungi WA
                 </a>
             </div>
         </div>
 
-        <!-- BARIS PENCARIAN BARU KHUSUS HP (Selalu Terlihat di HP & Aktif) -->
         <div class="block md:hidden px-4 pb-3 pt-1 border-t border-gray-100">
             <div class="relative w-full">
                 <input type="text" id="searchBarMobile" onkeyup="jalankanPencarian('searchBarMobile')" placeholder="Cari produk di sini..." class="w-full text-xs px-3 py-2 pl-8 rounded-lg border border-gray-200 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-emerald-500">
@@ -200,7 +196,6 @@
     <!-- HERO SECTION -->
     <section class="bg-gradient-to-r from-emerald-50 to-teal-50 py-16 md:py-24">
         <div class="container mx-auto px-6 text-center max-w-3xl">
-            <!-- EDIT: Judul Utama & Slogan -->
             <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
                 Produk Pilihan Terbaik untuk Kebutuhan Anda
             </h1>
@@ -220,18 +215,17 @@
             <p class="text-gray-500">Pilih produk favorit Anda dan pesan langsung via WhatsApp</p>
         </div>
         
-            <!-- Kontainer Utama Grid Katalog -->
-<div id="katalog" class="max-w-7xl mx-auto px-2 py-6">
-    <div id="tempat-produk" class="grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-4">
-        <!-- Kartu produk dari Spreadsheet akan masuk ke sini secara otomatis -->
-    </div>
-</div>
+        <div class="max-w-7xl mx-auto px-2 py-6">
+            <div id="tempat-produk" class="grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-4">
+                <!-- Data Produk Masuk Sini -->
+            </div>
+        </div>
+    </section>
 
     <!-- TENTANG KAMI -->
     <section id="tentang" class="bg-white py-16">
         <div class="container mx-auto px-6 max-w-4xl text-center">
             <h2 class="text-3xl font-bold text-gray-900 mb-4">Tentang Kami</h2>
-            <!-- EDIT: Deskripsi Singkat Bisnis Anda -->
             <p class="text-gray-600 leading-relaxed mb-6">
                 Kami berkomitmen untuk selalu memberikan pelayanan terbaik dan menyediakan produk dengan kualitas nomor satu. Transaksi aman dan admin yang selalu siap membantu Anda kapan saja.
             </p>
@@ -252,189 +246,139 @@
         </div>
     </section>
 
-    <!-- FOOTER / KONTAK -->
+    <!-- FOOTER -->
     <footer id="kontak" class="bg-gray-900 text-gray-400 py-12">
         <div class="container mx-auto px-6 text-center">
-            <!-- EDIT: Ganti sesuai informasi kontak Anda -->
             <h3 class="text-xl font-semibold text-white mb-4">Temukan Kami disini</h3>
-
- <!-- TEMPAT GOOGLE MAPS -->
             <div class="max-w-4xl mx-auto mb-8 rounded-2xl overflow-hidden shadow-lg border border-gray-800 h-64 md:h-96">
-                <!-- PASTE KODE IFRAME YANG ANDA SALIN DARI GOOGLE MAPS DI BAWAH INI -->
-		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d958.1985066014583!2d116.14503325392114!3d-8.586052939499481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdb9e26f06139d%3A0xa3a3b6bcd17d3989!2sCv.BDN!5e0!3m2!1sen!2sid!4v1784080434501!5m2!1sen!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-</div>
-         
- 	<p class="mb-2">📍 Lokasi: Jl. Blue Safir No. 1, Selagalas, Kec.Sandubaya</p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d958.1985066014583!2d116.14503325392114!3d-8.586052939499481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdb9e26f06139d%3A0xa3a3b6bcd17d3989!2sCv.BDN!5e0!3m2!1sen!2sid!4v1784080434501!5m2!1sen!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+            <p class="mb-2">📍 Lokasi: Jl. Blue Safir No. 1, Selagalas, Kec.Sandubaya</p>
             <p class="mb-6">📩 Email: cv.berkahdagangnusantara.com</p>
-		<p class="mb-8"> Customer Service: +6281911111346</p>
+            <p class="mb-8"> Customer Service: +6281911111346</p>
             <div class="border-t border-gray-800 pt-8 mt-8">
                 <p>&copy; 2026 CV. Berkah Dagang Nusantara. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-<!-- KONTEN POP-UP FOTO -->
-<div id="myModalFoto" class="modal-foto" onclick="tutupModalFoto()">
-    <span class="modal-tutup" onclick="tutupModalFoto()">&times;</span>
-    <img class="modal-konten" id="imgFull">
-</div>
-
-<!-- TOMBOL KERANJANG MELAYANG (ALA MARKETPLACE) -->
-<div id="floatingCart" class="floating-cart" onclick="bukaModalKeranjang()">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 0a2 2 0 100 4 2 2 0 000-4z" />
-    </svg>
-    <span>Keranjang (<span id="cartCount">0</span>)</span>
-</div>
-
-<!-- MODAL REVIEW BELANJAAN SEBELUM CHECKOUT WA -->
-<div id="modalKeranjang" class="modal-keranjang">
-    <div class="konten-keranjang">
-        <div class="flex justify-between items-center border-b pb-2 mb-4">
-            <h3 class="text-base font-bold text-gray-800">Keranjang Belanja</h3>
-            <button onclick="tutupModalKeranjang()" class="text-gray-500 font-bold text-xl">&times;</button>
-        </div>
-        <div id="listItemKeranjang" class="space-y-3 mb-4">
-            <!-- Item belanjaan akan muncul otomatis di sini -->
-        </div>
-        <div class="border-t pt-2 flex justify-between font-bold text-sm text-gray-800 mb-4">
-            <span>Estimasi Total:</span>
-            <span id="totalHargaKeranjang">Rp 0</span>
-        </div>
-        <button onclick="checkoutWhatsApp()" class="w-full bg-emerald-600 text-white py-2 rounded-lg font-bold text-sm hover:bg-emerald-700">
-            Kirim Pesanan ke WhatsApp
-        </button>
+    <!-- LIGHTBOX POPUP FOTO -->
+    <div id="myModalFoto" class="modal-foto" onclick="tutupModalFoto()">
+        <span class="modal-tutup" onclick="tutupModalFoto()">&times;</span>
+        <img class="modal-konten" id="imgFull" onclick="event.stopPropagation()">
     </div>
-</div>
 
-<!-- KONTEN POP-UP FOTO -->
-<div id="myModalFoto" class="modal-foto" onclick="tutupModalFoto()">
-    <span class="modal-tutup" onclick="tutupModalFoto()">&times;</span>
-    <img class="modal-konten" id="imgFull">
-</div>
-
-<!-- TOMBOL KERANJANG MELAYANG -->
-<div id="floatingCart" class="floating-cart" onclick="bukaModalKeranjang()">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 0a2 2 0 100 4 2 2 0 000-4z" />
-    </svg>
-    <span>Keranjang (<span id="cartCount">0</span>)</span>
-</div>
-
-<!-- MODAL REVIEW BELANJAAN -->
-<div id="modalKeranjang" class="modal-keranjang">
-    <div class="konten-keranjang">
-        <div class="flex justify-between items-center border-b pb-2 mb-4">
-            <h3 class="text-base font-bold text-gray-800">Keranjang Belanja</h3>
-            <button onclick="tutupModalKeranjang()" class="text-gray-500 font-bold text-xl">&times;</button>
-        </div>
-        <div id="listItemKeranjang" class="space-y-3 mb-4">
-            <!-- Item belanjaan akan muncul otomatis di sini -->
-        </div>
-        <div class="border-t pt-2 flex justify-between font-bold text-sm text-gray-800 mb-4">
-            <span>Estimasi Total:</span>
-            <span id="totalHargaKeranjang">Rp 0</span>
-        </div>
-        <button onclick="checkoutWhatsApp()" class="w-full bg-emerald-600 text-white py-2 rounded-lg font-bold text-sm hover:bg-emerald-700">
-            Kirim Pesanan ke WhatsApp
-        </button>
+    <!-- TOMBOL KERANJANG MELAYANG -->
+    <div id="floatingCart" class="floating-cart" onclick="bukaModalKeranjang()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 0a2 2 0 100 4 2 2 0 000-4z" />
+        </svg>
+        <span>Keranjang (<span id="cartCount">0</span>)</span>
     </div>
-</div>
+
+    <!-- MODAL REVIEW BELANJAAN -->
+    <div id="modalKeranjang" class="modal-keranjang" onclick="tutupModalKeranjang()">
+        <div class="konten-keranjang" onclick="event.stopPropagation()">
+            <div class="flex justify-between items-center border-b pb-2 mb-4">
+                <h3 class="text-base font-bold text-gray-800">Keranjang Belanja</h3>
+                <button onclick="tutupModalKeranjang()" class="text-gray-500 font-bold text-xl">&times;</button>
+            </div>
+            <div id="listItemKeranjang" class="space-y-3 mb-4">
+                <!-- Item belanjaan muncul di sini -->
+            </div>
+            <div class="border-t pt-2 flex justify-between font-bold text-sm text-gray-800 mb-4">
+                <span>Estimasi Total:</span>
+                <span id="totalHargaKeranjang">Rp 0</span>
+            </div>
+            <button onclick="checkoutWhatsApp()" class="w-full bg-emerald-600 text-white py-2 rounded-lg font-bold text-sm hover:bg-emerald-700">
+                Kirim Pesanan ke WhatsApp
+            </button>
+        </div>
+    </div>
 
 <script>
+    const URL_SPREADSHEET = "https://script.google.com/macros/s/AKfycbxGsZzM09GAExhEq2Jm7PmbAYbyryvEL_4shsI4Qvl2G1_LROeRjnXczpobKbRrRNsrAw/exec"; 
     let keranjang = [];
 
     document.addEventListener("DOMContentLoaded", function() {
-        let produk = document.getElementsByClassName('card-produk');
-        let modal = document.getElementById("myModalFoto");
-        let modalImg = document.getElementById("imgFull");
-        
-        window.tutupModalFoto = function() {
-            modal.style.display = "none";
-        }
+        muatDataDariSpreadsheet();
+    });
 
-        for (let i = 0; i < produk.length; i++) {
-            let pCard = produk[i];
-            
-            // Berikan ID unik tiap produk jika belum ada untuk pelacakan stok
-            if (!pCard.id) {
-                pCard.id = "produk-" + i;
-            }
+    // AMBIL DATA & RENDER KATALOG SECARA DINAMIS
+    function muatDataDariSpreadsheet() {
+        const tempatProduk = document.getElementById('tempat-produk');
+        tempatProduk.innerHTML = '<p class="text-center col-span-full py-10 text-gray-500 font-semibold text-sm">Sedang memuat katalog produk...</p>';
 
-            // A. FUNGSI KLIK FOTO
-            let img = pCard.querySelector('img');
-            if(img) {
-                img.onclick = function() {
-                    modal.style.display = "block";
-                    modalImg.src = this.src;
-                }
-            }
-
-            // B. PENGATURAN STATUS STOK BERDASARKAN ANGKA DI HTML
-            updateStatusStokProduk(pCard.id);
-
-            // C. MODIFIKASI TOMBOL BAWAH SECARA OTOMATIS
-            let linkBeliLama = pCard.querySelector('a');
-            if (linkBeliLama) {
-                let namaBarang = pCard.getElementsByTagName('h3')[0].innerText;
-                let hargaContainer = pCard.querySelector('.container-harga-fix') || pCard.querySelector('.flex.items-center.justify-between') || pCard.querySelector('div[class*="justify-between"]');
-                let teksHarga = hargaContainer ? hargaContainer.innerText.replace(/Ready\s*Stock|Stok\s*Terbatas|Out\s*of\s*Stock|Stok:\s*\d+/gi, '').replace(/\n/g, ' ').trim() : "Rp 0";
-                let urlWhatsAppLama = linkBeliLama.getAttribute('href');
-
-                let divTombolBaru = document.createElement('div');
-                divTombolBaru.className = 'container-tombol-produk';
-
-                let btnKeranjang = document.createElement('button');
-                btnKeranjang.className = 'btn-tambah-keranjang';
-                btnKeranjang.innerText = '+ Keranjang';
-                btnKeranjang.type = 'button';
-                btnKeranjang.id = "btn-cart-" + pCard.id;
-                btnKeranjang.onclick = function() {
-                    tambahKeKeranjang(pCard.id, namaBarang, teksHarga);
-                };
-
-                let btnPesan = document.createElement('a');
-                btnPesan.className = 'btn-pesan-skrg';
-                btnPesan.innerText = 'Beli Sekarang';
-                btnPesan.id = "btn-buy-" + pCard.id;
-                btnPesan.setAttribute('href', urlWhatsAppLama);
-                btnPesan.setAttribute('target', '_blank');
-                btnPesan.onclick = function(e) {
-                    // Jika langsung beli sekarang, potong 1 stok untuk barang ini
-                    let stokSekarang = parseInt(pCard.getAttribute('data-stok')) || 0;
-                    if (stokSekarang > 0) {
-                        pCard.setAttribute('data-stok', stokSekarang - 1);
-                        updateStatusStokProduk(pCard.id);
-                    } else {
-                        e.preventDefault();
-                        alert('Maaf, produk ini sudah Out of Stock!');
-                    }
-                };
-
-                divTombolBaru.appendChild(btnKeranjang);
-                divTombolBaru.appendChild(btnPesan);
-                linkBeliLama.parentNode.replaceChild(divTombolBaru, linkBeliLama);
+        fetch(URL_SPREADSHEET)
+            .then(response => response.json())
+            .then(data => {
+                tempatProduk.innerHTML = ''; 
                 
-                // Cek ulang tombol setelah dibuat jika barang bawaan awalnya sudah 0
-                let stokAwal = parseInt(pCard.getAttribute('data-stok')) || 0;
-                if(stokAwal <= 0) {
-                    btnKeranjang.disabled = true;
-                    btnKeranjang.style.opacity = "0.5";
-                    btnKeranjang.innerText = "Habis";
-                    btnPesan.innerText = "Out of Stock";
-                    btnPesan.style.backgroundColor = "#9ca3af";
-                    btnPesan.style.pointerEvents = "none";
+                if(data.length === 0) {
+                    tempatProduk.innerHTML = '<p class="text-center col-span-full py-10 text-gray-500 font-semibold text-sm">Tidak ada produk yang tersedia.</p>';
+                    return;
                 }
-            }
+
+                data.forEach((item, index) => {
+                    let idProduk = "produk-" + index;
+                    let fotoProduk = item.gambar_siap || "https://placehold.co/600x400?text=Tanpa+Foto";
+                    let stokAwal = parseInt(item.stok) || 0;
+                    
+                    // Bersihkan teks harga dari teks tambahan agar mudah dihitung di keranjang
+                    let teksHarga = item.harga || "Hubungi Kami";
+
+                    let kartuHTML = `
+                        <div class="card-produk shadow-md hover:shadow-xl transition duration-300" id="${idProduk}" data-stok="${stokAwal}">
+                            <div>
+                                <img src="${fotoProduk}" onclick="bukaModalFoto('${fotoProduk}')" alt="${item.nama || 'Produk'}">
+                                <div>
+                                    <span>${item.kategori || 'Umum'}</span>
+                                    <h3>${item.nama || 'Nama Produk'}</h3>
+                                    <p class="text-gray-600 text-sm leading-relaxed mb-4 desc-singkat">${item.deskripsi || '-'}</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <div class="flex items-center justify-between mb-1">
+                                        <!-- Area Indikator Stok Dinamis -->
+                                        <span class="badge-stok-dinamis text-[10px] px-2 py-0.5 rounded font-bold mb-1 inline-block"></span>
+                                        <div class="container-harga-fix">${teksHarga}</div>
+                                    </div>
+                                    <p class="text-[9px] text-gray-400 italic mb-4">*Harga dapat berubah sewaktu-waktu</p>
+                                </div>
+                                <div class="container-tombol-produk">
+                                    <button id="btn-cart-${idProduk}" onclick="tambahKeKeranjang('${idProduk}', '${item.nama.replace(/'/g, "\\'")}', '${teksHarga}')" class="btn-tambah-keranjang" type="button">+ Keranjang</button>
+                                    <a id="btn-buy-${idProduk}" href="https://wa.me/6287865656061?text=Halo%20Toko%20Berkah%20Dagang%20Nusantara,%20saya%20ingin%20memesan%20${encodeURIComponent(item.nama || '')}" target="_blank" class="btn-pesan-skrg">Beli Sekarang</a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    tempatProduk.innerHTML += kartuHTML;
+                });
+
+                // Inisialisasi fitur tambahan setelah HTML selesai dibuat
+                inisialisasiFiturTambahan();
+            })
+            .catch(error => {
+                console.error("Gagal memuat data:", error);
+                tempatProduk.innerHTML = '<p class="text-center col-span-full py-10 text-red-500 font-semibold text-sm">Gagal memuat katalog. Pastikan koneksi internet bagus.</p>';
+            });
+    }
+
+    function inisialisasiFiturTambahan() {
+        let produk = document.getElementsByClassName('card-produk');
+        for (let i = 0; i < produk.length; i++) {
+            let idProduk = produk[i].id;
             
-            // D. TOMBOL SELENGKAPNYA DESKRIPSI
-            let descTag = pCard.querySelector('p.text-gray-600') || pCard.querySelector('p:not([class])');
-            if (descTag && !pCard.querySelector('.btn-selengkapnya')) {
-                descTag.classList.add('desc-singkat');
+            // Atur status tampilan stok awal
+            updateStatusStokProduk(idProduk);
+
+            // Potong deskripsi otomatis
+            let descTag = produk[i].querySelector('.desc-singkat');
+            if (descTag && descTag.innerText.trim().length > 40) { 
                 let btnSelengkapnya = document.createElement('span');
                 btnSelengkapnya.className = 'btn-selengkapnya';
                 btnSelengkapnya.innerText = 'Selengkapnya';
-                
                 btnSelengkapnya.onclick = function() {
                     if (descTag.classList.contains('buka-semua')) {
                         descTag.classList.remove('buka-semua');
@@ -447,9 +391,21 @@
                 descTag.parentNode.insertBefore(btnSelengkapnya, descTag.nextSibling);
             }
         }
-    });
+    }
 
-    // FUNGSI UNTUK MEMPERBARUI TAMPILAN INDIKATOR STOK & HARGA (ANTI-BERTINDIH)
+    // POP UP FOTO FULL SIZE
+    window.bukaModalFoto = function(src) {
+        let modal = document.getElementById("myModalFoto");
+        let modalImg = document.getElementById("imgFull");
+        modal.style.display = "block";
+        modalImg.src = src;
+    }
+
+    window.tutupModalFoto = function() {
+        document.getElementById("myModalFoto").style.display = "none";
+    }
+
+    // UPDATE TAMPILAN BADGE STOK & CIRI TOMBOL
     function updateStatusStokProduk(idProduk) {
         let pCard = document.getElementById(idProduk);
         if (!pCard) return;
@@ -457,36 +413,9 @@
         let stok = parseInt(pCard.getAttribute('data-stok'));
         if (isNaN(stok)) stok = 0; 
 
-        let hargaContainer = pCard.querySelector('.flex.items-center.justify-between') || pCard.querySelector('div[class*="justify-between"]');
-        if (!hargaContainer) return;
+        let badgeStock = pCard.querySelector('.badge-stok-dinamis');
+        if (!badgeStock) return;
 
-        // 1. Bersihkan dan ambil teks harga asli dari elemen span pertama (menghindari teks ganda/bertindih)
-        let spanHargaAsli = hargaContainer.querySelector('span:not(.badge-stok-dinamis):not([class*="bg-emerald-100"])');
-        let teksHargaBersih = "Rp 0";
-        
-        if (spanHargaAsli) {
-            teksHargaBersih = spanHargaAsli.innerText.trim();
-        } else {
-            // Jika sudah terlanjur diubah oleh script sebelumnya, ambil dari container fix
-            let containerFix = pCard.querySelector('.container-harga-fix');
-            if (containerFix) teksHargaBersih = containerFix.innerText.trim();
-        }
-
-        // 2. Kosongkan isi container untuk menyusun ulang dari awal secara bersih
-        hargaContainer.innerHTML = '';
-
-        // 3. Buat ulang Badge Stok
-        let badgeStock = document.createElement('span');
-        badgeStock.className = 'badge-stok-dinamis text-[10px] px-2 py-0.5 rounded font-bold mb-1 inline-block';
-        hargaContainer.appendChild(badgeStock);
-
-        // 4. Buat ulang Container Harga Segaris secara rapi
-        let divHargaBaru = document.createElement('div');
-        divHargaBaru.className = 'container-harga-fix';
-        divHargaBaru.innerText = teksHargaBersih;
-        hargaContainer.appendChild(divHargaBaru);
-
-        // 5. Sesuaikan status tombol & warna badge berdasarkan jumlah stok
         let btnKeranjang = document.getElementById("btn-cart-" + idProduk);
         let btnPesan = document.getElementById("btn-buy-" + idProduk);
 
@@ -495,10 +424,12 @@
             badgeStock.style.backgroundColor = "#fee2e2";
             badgeStock.style.color = "#ef4444";
             
-            if (btnKeranjang && btnPesan) {
+            if (btnKeranjang) {
                 btnKeranjang.disabled = true;
                 btnKeranjang.style.opacity = "0.5";
                 btnKeranjang.innerText = "Habis";
+            }
+            if (btnPesan) {
                 btnPesan.innerText = "Out of Stock";
                 btnPesan.style.backgroundColor = "#9ca3af";
                 btnPesan.style.pointerEvents = "none";
@@ -507,15 +438,32 @@
             badgeStock.innerText = `Stok Terbatas: ${stok}`;
             badgeStock.style.backgroundColor = "#ffedd5";
             badgeStock.style.color = "#ea580c";
+            
+            ulihkanTombol(btnKeranjang, btnPesan);
         } else {
             badgeStock.innerText = `Stok: ${stok}`;
             badgeStock.style.backgroundColor = "#e6f4ea";
             badgeStock.style.color = "#059669";
+            
+            ulihkanTombol(btnKeranjang, btnPesan);
         }
     }
 
-    // FUNGSI KERANJANG BELANJA DENGAN CEK LIMIT STOK
-    function tambahKeKeranjang(idProduk, nama, harga) {
+    function ulihkanTombol(btnKeranjang, btnPesan) {
+        if (btnKeranjang) {
+            btnKeranjang.disabled = false;
+            btnKeranjang.style.opacity = "1";
+            btnKeranjang.innerText = "+ Keranjang";
+        }
+        if (btnPesan) {
+            btnPesan.innerText = "Beli Sekarang";
+            btnPesan.style.backgroundColor = "#059669";
+            btnPesan.style.pointerEvents = "auto";
+        }
+    }
+
+    // FUNGSI MANAJEMEN KERANJANG BELANJA MULTIPEL
+    window.tambahKeKeranjang = function(idProduk, nama, harga) {
         let pCard = document.getElementById(idProduk);
         let stokTersedia = parseInt(pCard.getAttribute('data-stok')) || 0;
         
@@ -544,7 +492,7 @@
         floatingCart.style.display = totalItems > 0 ? 'flex' : 'none';
     }
 
-    function bukaModalKeranjang() {
+    window.bukaModalKeranjang = function() {
         document.getElementById('modalKeranjang').style.display = 'block';
         let listContainer = document.getElementById('listItemKeranjang');
         listContainer.innerHTML = '';
@@ -564,7 +512,7 @@
                 </div>
                 <div class="flex items-center gap-1">
                     <button onclick="ubahJumlahItem(${index}, -1)" class="bg-gray-200 px-2 py-0.5 rounded font-bold">-</button>
-                    <span class="px-1">${item.jumlah}</span>
+                    <span class="px-1 font-semibold">${item.jumlah}</span>
                     <button onclick="ubahJumlahItem(${index}, 1)" class="bg-gray-200 px-2 py-0.5 rounded font-bold">+</button>
                 </div>
             `;
@@ -574,7 +522,7 @@
         document.getElementById('totalHargaKeranjang').innerText = 'Rp ' + totalEstimasi.toLocaleString('id-ID');
     }
 
-    function ubahJumlahItem(index, perubahan) {
+    window.ubahJumlahItem = function(index, perubahan) {
         let item = keranjang[index];
         let pCard = document.getElementById(item.id);
         let stokTersedia = parseInt(pCard.getAttribute('data-stok')) || 0;
@@ -597,26 +545,25 @@
         }
     }
 
-    function tutupModalKeranjang() {
+    window.tutupModalKeranjang = function() {
         document.getElementById('modalKeranjang').style.display = 'none';
     }
 
-    // FUNGSI CHECKOUT & POTONG STOK SECARA REAL-TIME DI HALAMAN
-    function checkoutWhatsApp() {
+    // CHECKOUT MULTIPEL & POTONG STOK REAL-TIME
+    window.checkoutWhatsApp = function() {
         if (keranjang.length === 0) return;
         
-        let nomorWA = "6287865656061"; // Ganti nomor WhatsApp toko Anda di sini
+        let nomorWA = "6287865656061"; 
         let pesan = "Halo Admin, saya ingin memesan produk berikut:\n\n";
         let totalEstimasi = 0;
 
-        // 1. Jalankan proses pemotongan stok lokal & susun pesan teks
         keranjang.forEach((item, i) => {
             let pCard = document.getElementById(item.id);
             if (pCard) {
                 let stokLama = parseInt(pCard.getAttribute('data-stok')) || 0;
                 let stokBaru = Math.max(0, stokLama - item.jumlah);
-                pCard.setAttribute('data-stok', stokBaru); // Stok dikurangi sesuai jumlah beli
-                updateStatusStokProduk(item.id); // Perbarui tampilan badge & tombol halaman saat itu juga
+                pCard.setAttribute('data-stok', stokBaru); 
+                updateStatusStokProduk(item.id); 
             }
 
             let angkaHarga = parseInt(item.harga.replace(/[^0-9]/g, '')) || 0;
@@ -630,12 +577,10 @@
 
         pesan += `*Total Estimasi:* Rp ${totalEstimasi.toLocaleString('id-ID')}\n\nMohon diinfokan kelanjutan prosesnya. Terima kasih!`;
         
-        // 2. Kosongkan keranjang belanja setelah checkout berhasil diproses
         keranjang = [];
         updateTampilanKeranjang();
         tutupModalKeranjang();
 
-        // 3. Alihkan ke WhatsApp
         let urlWhatsApp = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
         window.open(urlWhatsApp, '_blank');
     }
@@ -663,102 +608,5 @@
         }
     }
 </script>
-
-<script>
-    // 1. GANTI DENGAN URL WEB APP GOOGLE APPS SCRIPT ANDA
-    const URL_SPREADSHEET = "https://script.google.com/macros/s/AKfycbxGsZzM09GAExhEq2Jm7PmbAYbyryvEL_4shsI4Qvl2G1_LROeRjnXczpobKbRrRNsrAw/exec"; 
-
-    document.addEventListener("DOMContentLoaded", function() {
-        muatDataDariSpreadsheet();
-    });
-
-    function muatDataDariSpreadsheet() {
-        const tempatProduk = document.getElementById('tempat-produk');
-        tempatProduk.innerHTML = '<p class="text-center col-span-full py-10 text-gray-500 font-semibold text-sm">Sedang memuat katalog produk...</p>';
-
-        fetch(URL_SPREADSHEET)
-            .then(response => response.json())
-            .then(data => {
-                tempatProduk.innerHTML = ''; // Hapus tulisan loading
-                
-                if(data.length === 0) {
-                    tempatProduk.innerHTML = '<p class="text-center col-span-full py-10 text-gray-500 font-semibold text-sm">Tidak ada produk yang tersedia.</p>';
-                    return;
-                }
-
-                data.forEach((item, index) => {
-                    let idProduk = "produk-" + index;
-                    
-                    // Gunakan gambar hasil konversi rumus, atau gunakan placeholder jika kosong
-                    let fotoProduk = item.gambar_siap || "https://placehold.co/600x400?text=Tanpa+Foto";
-                    
-                    let kartuHTML = `
-                        <div class="card-produk bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 flex flex-col justify-between" id="${idProduk}" data-stok="${item.stok || 0}">
-                            <div>
-                                <img src="${fotoProduk}" onclick="bukaModalFoto('${fotoProduk}')" alt="${item.nama || 'Produk'}" class="w-full h-48 object-cover cursor-pointer">
-                                <div class="p-6">
-                                    <span class="text-xs font-bold text-emerald-600 tracking-widest uppercase">${item.kategori || 'Umum'}</span>
-                                    <h3 class="text-xl font-bold text-gray-900 mt-1 mb-2">${item.nama || 'Nama Produk'}</h3>
-                                    <p class="text-gray-600 text-sm leading-relaxed mb-4 desc-singkat">${item.deskripsi || '-'}</p>
-                                </div>
-                            </div>
-                            <div class="p-6 pt-0">
-                                <div>
-                                    <div class="flex items-center justify-between mb-1">
-                                        <span class="text-2xl font-extrabold text-gray-900">${item.harga || 'Hubungi Kami'}</span>
-                                    </div>
-                                    <p class="text-[10px] text-gray-400 italic mb-4">*Harga dapat berubah sewaktu-waktu</p>
-                                </div>
-                                <div class="container-tombol-produk">
-                                    <button id="btn-cart-${idProduk}" onclick="tambahKeKeranjang('${item.nama}', '${item.harga}')" class="btn-tambah-keranjang" type="button">+ Keranjang</button>
-                                    <a id="btn-buy-${idProduk}" href="https://wa.me/6287865656061?text=Halo%20Toko%20Berkah%20Dagang%20Nusantara,%20saya%20ingin%20memesan%20${encodeURIComponent(item.nama || '')}" target="_blank" class="btn-pesan-skrg">Beli Sekarang</a>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                    
-                    tempatProduk.innerHTML += kartuHTML;
-                });
-
-                // Menjalankan fungsi tambahan untuk memproses label stok & deskripsi panjang
-                inisialisasiFiturTambahan();
-            })
-            .catch(error => {
-                console.error("Gagal memuat data:", error);
-                tempatProduk.innerHTML = '<p class="text-center col-span-full py-10 text-red-500 font-semibold text-sm">Gagal memuat katalog. Pastikan koneksi internet bagus.</p>';
-            });
-    }
-
-    function inisialisasiFiturTambahan() {
-        let produk = document.getElementsByClassName('card-produk');
-        for (let i = 0; i < produk.length; i++) {
-            let idProduk = produk[i].id;
-            
-            // Jalankan fungsi pengatur status stok dinamis jika ada
-            if (typeof updateStatusStokProduk === "function") {
-                updateStatusStokProduk(idProduk);
-            }
-
-            // Potong deskripsi otomatis
-            let descTag = produk[i].querySelector('.desc-singkat');
-            if (descTag && descTag.innerText.trim().length > 40) { 
-                let btnSelengkapnya = document.createElement('span');
-                btnSelengkapnya.className = 'btn-selengkapnya';
-                btnSelengkapnya.innerText = 'Selengkapnya';
-                btnSelengkapnya.onclick = function() {
-                    if (descTag.classList.contains('buka-semua')) {
-                        descTag.classList.remove('buka-semua');
-                        btnSelengkapnya.innerText = 'Selengkapnya';
-                    } else {
-                        descTag.classList.add('buka-semua');
-                        btnSelengkapnya.innerText = 'Sembunyikan';
-                    }
-                };
-                descTag.parentNode.insertBefore(btnSelengkapnya, descTag.nextSibling);
-            }
-        }
-    }
-</script>
-
 </body>
 </html>
