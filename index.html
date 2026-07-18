@@ -686,34 +686,16 @@
                     return;
                 }
 
-                // ======================================================================
-                // KODE YANG ANDA TANYAKAN DILETAKKAN DI SINI (MENGGANTIKAN FOR-EACH LAMA)
-                // ======================================================================
                 data.forEach((item, index) => {
                     let idProduk = "produk-" + index;
                     
-                    // --- CONVERTER OTOMATIS JALUR CDN GOOGLE DRIVE BARU ---
-                    let fotoProduk = "https://placehold.co/600x400?text=Tanpa+Foto";
-                    let linkMentah = item.gambar_siap || item.gambar || "";
-
-                    if (linkMentah !== "") {
-                        let cocokanID = linkMentah.match(/(?:id=|\/d\/)([^&\s/]+)/);
-                        if (cocokanID && cocokanID[1]) {
-                            fotoProduk = `https://lh3.google.com/d/${cocokanID[1]}`;
-                        } else {
-                            fotoProduk = linkMentah;
-                        }
-                    }
-                    // ------------------------------------------------------
-
-                    // Pastikan harga dikirim sebagai string bersih ke fungsi keranjang
-                    let namaAman = (item.nama || 'Produk').replace(/'/g, "\\'");
-                    let hargaAman = (item.harga || '0').toString();
-
+                    // Gunakan gambar hasil konversi rumus, atau gunakan placeholder jika kosong
+                    let fotoProduk = item.gambar_siap || "https://placehold.co/600x400?text=Tanpa+Foto";
+                    
                     let kartuHTML = `
                         <div class="card-produk bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 flex flex-col justify-between" id="${idProduk}" data-stok="${item.stok || 0}">
                             <div>
-                                <img src="${fotoProduk}" onclick="bukaModalFoto('${fotoProduk}')" alt="${item.nama || 'Produk'}" class="w-full h-48 object-cover cursor-pointer" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Gambar+Gagal+Muat';">
+                                <img src="${fotoProduk}" onclick="bukaModalFoto('${fotoProduk}')" alt="${item.nama || 'Produk'}" class="w-full h-48 object-cover cursor-pointer">
                                 <div class="p-6">
                                     <span class="text-xs font-bold text-emerald-600 tracking-widest uppercase">${item.kategori || 'Umum'}</span>
                                     <h3 class="text-xl font-bold text-gray-900 mt-1 mb-2">${item.nama || 'Nama Produk'}</h3>
@@ -728,7 +710,7 @@
                                     <p class="text-[10px] text-gray-400 italic mb-4">*Harga dapat berubah sewaktu-waktu</p>
                                 </div>
                                 <div class="container-tombol-produk">
-                                    <button id="btn-cart-${idProduk}" onclick="tambahKeKeranjang('${namaAman}', '${hargaAman}')" class="btn-tambah-keranjang" type="button">+ Keranjang</button>
+                                    <button id="btn-cart-${idProduk}" onclick="tambahKeKeranjang('${item.nama}', '${item.harga}')" class="btn-tambah-keranjang" type="button">+ Keranjang</button>
                                     <a id="btn-buy-${idProduk}" href="https://wa.me/6287865656061?text=Halo%20Toko%20Berkah%20Dagang%20Nusantara,%20saya%20ingin%20memesan%20${encodeURIComponent(item.nama || '')}" target="_blank" class="btn-pesan-skrg">Beli Sekarang</a>
                                 </div>
                             </div>
@@ -737,15 +719,44 @@
                     
                     tempatProduk.innerHTML += kartuHTML;
                 });
-                // ======================================================================
 
-                // Aktifkan fitur stok & tombol selengkapnya setelah data masuk HTML
+                // Menjalankan fungsi tambahan untuk memproses label stok & deskripsi panjang
                 inisialisasiFiturTambahan();
             })
             .catch(error => {
                 console.error("Gagal memuat data:", error);
                 tempatProduk.innerHTML = '<p class="text-center col-span-full py-10 text-red-500 font-semibold text-sm">Gagal memuat katalog. Pastikan koneksi internet bagus.</p>';
             });
+    }
+
+    function inisialisasiFiturTambahan() {
+        let produk = document.getElementsByClassName('card-produk');
+        for (let i = 0; i < produk.length; i++) {
+            let idProduk = produk[i].id;
+            
+            // Jalankan fungsi pengatur status stok dinamis jika ada
+            if (typeof updateStatusStokProduk === "function") {
+                updateStatusStokProduk(idProduk);
+            }
+
+            // Potong deskripsi otomatis
+            let descTag = produk[i].querySelector('.desc-singkat');
+            if (descTag && descTag.innerText.trim().length > 40) { 
+                let btnSelengkapnya = document.createElement('span');
+                btnSelengkapnya.className = 'btn-selengkapnya';
+                btnSelengkapnya.innerText = 'Selengkapnya';
+                btnSelengkapnya.onclick = function() {
+                    if (descTag.classList.contains('buka-semua')) {
+                        descTag.classList.remove('buka-semua');
+                        btnSelengkapnya.innerText = 'Selengkapnya';
+                    } else {
+                        descTag.classList.add('buka-semua');
+                        btnSelengkapnya.innerText = 'Sembunyikan';
+                    }
+                };
+                descTag.parentNode.insertBefore(btnSelengkapnya, descTag.nextSibling);
+            }
+        }
     }
 </script>
 
